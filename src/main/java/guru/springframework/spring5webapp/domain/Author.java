@@ -1,5 +1,6 @@
 package guru.springframework.spring5webapp.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,20 +19,16 @@ public class Author {
 	private String lastName;
 
 	@ManyToMany(mappedBy = "authors")
-	private Set<Book> books;
+	private Set<Book> books = new HashSet<>();
 
 	public Author() {
 
 	}
 
-	public Author(
-			final String firstName,
-			final String lastName,
-			final Set<Book> books) {
+	public Author(final String firstName, final String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.books = books;
 	}
 
 	public Long getId() {
@@ -46,8 +43,7 @@ public class Author {
 		return firstName;
 	}
 
-	public void setFirstName(
-			String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -55,8 +51,7 @@ public class Author {
 		return lastName;
 	}
 
-	public void setLastName(
-			String lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -64,29 +59,21 @@ public class Author {
 		return books;
 	}
 
-	public void setBooks(
-			Set<Book> books) {
+	public void setBooks(Set<Book> books) {
 		this.books = books;
 	}
 
 	@Override
 	public String toString() {
-		return "Author [id=" + id
-				+ ", firstName="
-				+ firstName
-				+ ", lastName="
-				+ lastName + ", books="
-				+ books + "]";
+		return "Author [id=" + id + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", books=" + books + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((id == null)
-						? 0
-						: id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -96,8 +83,7 @@ public class Author {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj
-				.getClass())
+		if (getClass() != obj.getClass())
 			return false;
 		Author other = (Author) obj;
 
