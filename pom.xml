@@ -11,8 +11,10 @@
 	<groupId>com.jdutton</groupId>
 	<artifactId>spring5webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>spring5webapp</name>
-	<description>Demo project for Spring Boot</description>
+	
+	<description>Example Spring 5 Web Application</description>
 
 	<properties>
 		<java.version>1.8</java.version>
