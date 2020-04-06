@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<title>Spring Framework Guru</title>
@@ -8,7 +8,11 @@
 		<h1>Book List</h1>
 		<table>
 			<tr><th>ID</th><th>Title</th><th>Publisher</th></tr>
-			<tr><td>2</td><td>Smaple</td><td>Foo</td></tr>
+			<tr th:each="book : ${books}">
+				<td th:text="${book.id}">2</td>
+				<td th:text="${book.title}">Smaple</td>
+				<td th:text="${book.publisher.name}">Foo</td>
+			</tr>
 		</table>
 	</body>
 </html>
